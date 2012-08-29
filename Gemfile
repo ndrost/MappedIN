@@ -43,7 +43,8 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem "twitter-bootstrap-rails", :group => :assets
+gem "twitter-bootstrap-rails"
+#gem "twitter-bootstrap-rails", :group => :assets
 gem 'less-rails-bootstrap'
 gem "gmaps4rails"
 gem "geocoder"
