@@ -90,6 +90,7 @@ GEM
     netrc (0.7.7)
     nokogiri (1.5.5)
     oauth (0.4.6)
+    pg (0.14.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -172,6 +173,7 @@ DEPENDENCIES
   less-rails-bootstrap
   linkedin!
   oauth
+  pg
   rails (= 3.2.2)
   redis
   sass-rails (~> 3.2.3)
