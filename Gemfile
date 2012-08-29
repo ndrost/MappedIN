@@ -19,7 +19,6 @@ end
 
 group :development do
   gem 'taps', :require => false # has an sqlite dependency, which heroku hates
-  gem 'thin'
   gem 'sqlite3'
 end
 
@@ -49,3 +48,4 @@ gem 'redis'
 gem 'heroku'
 gem 'linkedin', :git => "git://github.com/pengwynn/linkedin.git" , :branch => '2-0-stable'
 gem "oauth"
+gem "thin"
