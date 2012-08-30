@@ -1,0 +1,17 @@
+<div class="container">
+
+<%= gmaps(:map_options => 
+	 {:type => "TERRAIN", 
+          :zoom => 2, 
+	  :auto_zoom => false,
+          :auto_adjust => true}, 
+	  :markers => 
+         {:data => @rarr.to_json, 
+          :options => 
+         {:do_clustering => true, 
+	  :randomize => true, 
+          :max_random_distance => 1000, 
+          :clusterer_maxZoom => 10,}}) 
+%>
+
+</div>
