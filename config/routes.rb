@@ -1,7 +1,8 @@
 Mappedin2::Application.routes.draw do
-  match 'auth', :to => 'auth#index'
-  match 'auth/callback', :to => 'auth#show'
-  get 'logout' => 'auth#destroy'
+  match '/' => 'auth#index'
+#  match 'auth', :to => 'auth#index'
+#  match 'auth/callback', :to => 'auth#show'
+#  get 'logout' => 'auth#destroy'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
