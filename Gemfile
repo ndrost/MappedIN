@@ -54,3 +54,6 @@ gem 'heroku'
 gem 'linkedin', :git => "git://github.com/pengwynn/linkedin.git" , :branch => '2-0-stable'
 gem "oauth"
 gem "thin"
+gem 'foreman', :git => 'https://github.com/ddollar/foreman.git'
+#gem 'foreman', '0.27.0'
+

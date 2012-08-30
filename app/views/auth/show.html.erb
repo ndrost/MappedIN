@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <a class="brand" href="/">MappedIN</a>
-    </div>
-  </div>
-</div>
-    <body>
-    <div class="container-fluid">
-	<table>
-	<% @connections.each do |c| %>
-	<%= "<TR>c</TR>" %>
-	<% end %>
-	</table>
-    </div>
-    </body>
-</html>
+<div class="container">
 
+<%= gmaps(:map_options => 
+	 {:type => "TERRAIN", 
+          :center_longitude => 180, 
+          :zoom => 1, 
+          :auto_adjust => true}, 
+	  :markers => 
+         {:data => @rarr.to_json, 
+          :options => 
+         {:do_clustering => true, 
+	  :randomize => true, 
+          :max_random_distance => 1000, 
+          :clusterer_maxZoom => 10,}}) 
+%>
+
+</div>

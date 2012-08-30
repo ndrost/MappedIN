@@ -5,9 +5,22 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">MappedIN</a>
+    <p class="navbar-text pull-right">
+        Welcome
+     <a class="navbar-link" href="#"><%="#{@profile.first_name}"%></a>
+  </div>
+    <div class="alert alert-info">
+        You currently have <%="#{@connections.length}"%> connections being mapped by MappedIN!
+    </div>
+</div>
 </head>
 <body>
 
+<%= yield :scripts %>
 <%= yield %>
 
 </body>
