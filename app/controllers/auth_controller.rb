@@ -1,11 +1,13 @@
 class AuthController < ApplicationController
   def index
-      # get your api keys at https://www.linkedin.com/secure/developer
-     client = LinkedIn::Client.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'])
-     request_token = client.request_token(:oauth_callback => "http://#{request.host_with_port}/auth/callback")
-     session[:rtoken] = request_token.token
-     session[:rsecret] = request_token.secret
-     redirect_to client.request_token.authorize_url
+  # get your api keys at https://www.linkedin.com/secure/developer
+    client = LinkedIn::Client.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'])
+    request_token = client.request_token(:oauth_callback => 
+                                      "http://#{request.host_with_port}/auth/callback")
+    session[:rtoken] = request_token.token
+    session[:rsecret] = request_token.secret
+
+    redirect_to client.request_token.authorize_url
   end
 
   def callback
@@ -19,21 +21,24 @@ class AuthController < ApplicationController
        client.authorize_from_access(session[:atoken], session[:asecret])
     end
     @connections = client.connections
-  end
-  def show
-     client = LinkedIn::Client.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'])
-    if session[:atoken].nil?
-       pin = params[:oauth_verifier]
-       atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
-       session[:atoken] = atoken
-       session[:asecret] = asecret
-    else
-       client.authorize_from_access(session[:atoken], session[:asecret])
-    end
-    @connections = client.connections
     @profile = client.profile
     process_connections
   end
+
+#  def show
+#     client = LinkedIn::Client.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'])
+#    if session[:atoken].nil?
+#       pin = params[:oauth_verifier]
+#       atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
+#       session[:atoken] = atoken
+#       session[:asecret] = asecret
+#    else
+#       client.authorize_from_access(session[:atoken], session[:asecret])
+#    end
+#    @connections = client.connections
+#    @profile = client.profile
+#    process_connections
+#  end
 
   def process_connections
     counter = 0

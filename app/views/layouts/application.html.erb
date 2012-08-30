@@ -10,11 +10,17 @@
   <div class="navbar-inner">
     <a class="brand" href="#">MappedIN</a>
     <p class="navbar-text pull-right">
-        Welcome
-     <a class="navbar-link" href="#"><%="#{@profile.first_name}"%></a>
+     <a class="navbar-link" href="#">	
+	Welcome
+	<%if !@profile.nil? %>
+	<%="#{@profile.first_name}"%></a>
+	<%= link_to "Sign Out", logout_url %>
+	<% end %>
   </div>
     <div class="alert alert-info">
-        You currently have <%="#{@connections.length}"%> connections being mapped by MappedIN!
+	<%if !@profile.nil? %>
+        You currently have <%="#{@connections.length}"%> connections being mapped by MappedIN!  Click a Location to drill into your connections!
+	<% end %>
     </div>
 </div>
 </head>
