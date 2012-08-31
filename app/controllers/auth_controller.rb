@@ -22,7 +22,7 @@ class AuthController < ApplicationController
     end
     @connections = client.connections
     @profile = client.profile
-    process_connections
+    @pcon = process_connections
   end
 
 #  def show
