@@ -24,21 +24,12 @@ class AuthController < ApplicationController
     @profile = client.profile
     @pcon = process_connections
   end
-
-#  def show
-#     client = LinkedIn::Client.new(ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'])
-#    if session[:atoken].nil?
-#       pin = params[:oauth_verifier]
-#       atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
-#       session[:atoken] = atoken
-#       session[:asecret] = asecret
-#    else
-#       client.authorize_from_access(session[:atoken], session[:asecret])
-#    end
-#    @connections = client.connections
-#    @profile = client.profile
-#    process_connections
-#  end
+  
+  def destroy
+    session[:atoken] = nil
+    redirect_to '/', :notice => "Signed out!"
+    flash[:notice] = "You have been logged out." 
+   end
 
   def process_connections
     counter = 0
