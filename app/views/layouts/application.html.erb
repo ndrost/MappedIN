@@ -11,8 +11,8 @@
     <a class="brand" href="#">MappedIN</a>
     <p class="navbar-text pull-right">
      <a class="navbar-link" href="#">	
-	Welcome
 	<%if !@profile.nil? %>
+	Welcome
 	<%="#{@profile.first_name}"%></a>
 	<%= link_to "Sign Out", logout_url %>
 	<% end %>
@@ -23,11 +23,40 @@
 	<% end %>
     </div>
 </div>
+<style>
+	footer[role="contentinfo"] {
+            color: #666;
+            background: #f5f5f5;
+            padding: 18px 0;
+        }
+	html, body {
+            height: 100%;
+        }
+        #push {
+            height: 54px;
+        }
+        footer[role="contentinfo"] {
+            height: 18px; /* accounts for padding */
+        }
+        body > .container {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -54px;
+        }
+</style>
 </head>
 <body>
 
 <%= yield :scripts %>
 <%= yield %>
 
+<footer role="contentinfo">
+      <div class="container">
+        <p>Nick Drost, <A href="http://www.salesforce.com" target="_blank">salesforce.com</a>
+	<a href="http://www.linkedin.com/in/nickdrost" style="text-decoration:none;"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="http://www.linkedin.com/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Nick Drost's LinkedIn profile" style="vertical-align:middle" border="0">View Nick Drost's profile</span></a>
+	</p>
+      </div>
+</footer>
 </body>
 </html>
